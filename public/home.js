@@ -24,8 +24,6 @@ var stripeHandler = StripeCheckout.configure({
     key: stripePublicKey,
     locale: 'auto',
     token: function(token) {
-        console.log(token)
-
         var quantity = document.getElementById('cart-quantity-input').value
         var fromName = document.getElementById('from-name').value
         var fromEmail = document.getElementById('from-email').value
