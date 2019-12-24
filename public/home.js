@@ -65,7 +65,6 @@ function resetFields() {
     document.getElementById('from-email').value = ''
     document.getElementById('recipients-name').value = ''
     document.getElementById('recipients-email').value = ''
-    console.log('yes')
     updateQuantityDisplay()
     updateCartTotal()
     updatePears()
