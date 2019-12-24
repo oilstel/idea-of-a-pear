@@ -5,8 +5,8 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const fs = require('fs')
-const stripePublicKey = process.env.STRIPE_PUBLIC_KEY_TEST
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY_TEST
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 const stripe = require('stripe')(stripeSecretKey)
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
