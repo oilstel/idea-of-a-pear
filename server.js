@@ -109,7 +109,7 @@ app.post('/purchase', function(req, res) {
                     dynamic_template_data: {
                         subject: `Receipt: ${quantity} ideas of a pear sent to ${recipientsName}`,
                         previewText: pears,
-                        fromName: 'Idea of a Pear',
+                        fromName: '🍐',
                         recipientsName: fromName,
                         recipientsEmail: fromEmail,
                         pears: pears,
