@@ -181,7 +181,7 @@ updatePearview = () => {
             ${pears}
         </div>
         <br />
-        Yours truly,<br />
+        Yours in pearpetuity,<br />
         ${fromName}
     `
 }
