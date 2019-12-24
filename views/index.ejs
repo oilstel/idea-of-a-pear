@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Idea of a 🍐</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
+        <link href="home.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container">
+            <div id="box">
+                <h1><span id="pears">🍐</span></h1><br />
+                <div id="checkout">
+                    <input id="cart-quantity-input" type="number" value="1" style="display: none;" />
+                    <span id="cart-quantity-display">1</span>&nbsp;&nbsp;
+                    <button id="button-down">-</button>
+                    <button id="button-up">+</button><br />
+
+                    <label>Total Price:</label>&nbsp;
+
+                    <p id="total">
+                        <span class="cart-total-price">$0.66</span>
+                    </p><br />
+
+                    <label>Your Name:</label>
+                    <input type="text" id="from-name" name="from-name" maxlength="25" /><br />
+                    <label>Your Email:</label>
+                    <input type="email" id="from-email" name="from-email" maxlength="25" /><br />
+
+                    <label>Recipient Name:</label>
+                    <input type="text" id="recipients-name" name="recipients-name" maxlength="25" /><br />
+                    <label>Recipient Email:</label>
+                    <input type="email" id="recipients-email" name="recipients-email" minlength="3" /><br />
+                    <p id="item-price" style="display:none;">$<%= Number.parseFloat(pear.price / 100).toFixed(2) %></p><br />
+
+                    <em class="light">Recipient will receive an email with the idea of <span id="pear-quantity-text">a pear</span>.<br />No actual pears can be purchased or sent!</em><br /><br />
+
+                    <button id="pearview-open">Preview</button><br /><br />
+                </div>
+            </div>
+        </div>
+        <div id="purchased">
+        <%= totalPurchased %>
+        </div>
+
+        <div id="pearview">
+            <div id="pearview-inner">
+                <div id="email">
+                    
+                </div>
+
+                <div id="buttons">
+                    <button id="pearview-close">Edit</button>
+                    <button id="btn-purchase">Pay & Send</button>
+
+                    <br /><br />
+
+                    <em class="tiny light">Payments are handled by Stripe.</em>
+                </div id>
+            </div>
+        </div>
+
+        <script src="https://checkout.stripe.com/checkout.js" defer></script>
+        <script>
+            var stripePublicKey = '<%= stripePublicKey %>'
+        </script>
+        <script src="home.js" defer></script>
+    </body>
+</html>
