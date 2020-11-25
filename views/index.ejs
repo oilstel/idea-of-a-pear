@@ -27,15 +27,12 @@
                         <span class="cart-total-price">$0.66</span>
                     </p><br />
 
-                    <label>Your Name:</label>
-                    <input type="text" id="from-name" name="from-name" maxlength="50" /><br />
-                    <label>Your Email:</label>
-                    <input type="email" id="from-email" name="from-email" minlength="3" /><br />
 
-                    <label>Recipient Name:</label>
-                    <input type="text" id="recipients-name" name="recipients-name" maxlength="25" /><br />
-                    <label>Recipient Email:</label>
-                    <input type="email" id="recipients-email" name="recipients-email" minlength="3" /><br />
+                    <input type="text" id="from-name" name="from-name" maxlength="50" placeholder="Your name" /><br />
+
+                    <input type="text" id="recipients-name" name="recipients-name" maxlength="25" placeholder="Friends name" size="30" /><br />
+
+                    <input type="email" id="recipients-email" name="recipients-email" minlength="3" placeholder="Friends email" size="32" /><br />
                     <p id="item-price" style="display:none;">$<%= Number.parseFloat(pear.price / 100).toFixed(2) %></p><br />
 
                     <em class="light">Recipient will receive an email with the idea of <span id="pear-quantity-text">a pear</span>.<br />No actual pears can be purchased or sent!</em><br /><br />

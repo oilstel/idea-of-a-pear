@@ -72,7 +72,7 @@ app.post('/purchase', function(req, res) {
             
             const quantity = req.body.quantity
             const fromName = req.body.fromName
-            const fromEmail = req.body.fromEmail
+            // const fromEmail = req.body.fromEmail
             const recipientsName = req.body.recipientsName
             const recipientsEmail = req.body.recipientsEmail
             const itemJson = JSON.parse(data)
@@ -102,19 +102,19 @@ app.post('/purchase', function(req, res) {
 
             // Send recipient email
             const emails = [
-                {
-                    to: fromEmail,
-                    from: 'pear@ideaofapear.com',
-                    templateId: 'd-cd1d430ed416465badaad80dbf8fd53a',
-                    dynamic_template_data: {
-                        subject: `Receipt: ${quantity} ideas of a pear sent to ${recipientsName}`,
-                        previewText: pears,
-                        fromName: '🍐',
-                        recipientsName: fromName,
-                        recipientsEmail: fromEmail,
-                        pears: pears,
-                    },
-                },
+                // {
+                //     to: fromEmail,
+                //     from: 'pear@ideaofapear.com',
+                //     templateId: 'd-cd1d430ed416465badaad80dbf8fd53a',
+                //     dynamic_template_data: {
+                //         subject: `Receipt: ${quantity} ideas of a pear sent to ${recipientsName}`,
+                //         previewText: pears,
+                //         fromName: '🍐',
+                //         recipientsName: fromName,
+                //         recipientsEmail: fromEmail,
+                //         pears: pears,
+                //     },
+                // },
                 {
                     to: recipientsEmail,
                     from: 'pear@ideaofapear.com',
@@ -123,7 +123,6 @@ app.post('/purchase', function(req, res) {
                         subject: `Received ${quantity} ideas of a pear from ${fromName}`,
                         previewText: pears,
                         fromName: fromName,
-                        fromEmail: '<' + fromEmail + '>',
                         recipientsName: recipientsName,
                         recipientsEmail: recipientsEmail,
                         pears: pears,
@@ -131,6 +130,8 @@ app.post('/purchase', function(req, res) {
                 }
             ]
             sgMail.send(emails);
+
+            console.log(emails);
         }
     })
 })

@@ -26,7 +26,7 @@ var stripeHandler = StripeCheckout.configure({
     token: function(token) {
         var quantity = document.getElementById('cart-quantity-input').value
         var fromName = document.getElementById('from-name').value
-        var fromEmail = document.getElementById('from-email').value
+        // var fromEmail = document.getElementById('from-email').value
         var recipientsName = document.getElementById('recipients-name').value
         var recipientsEmail = document.getElementById('recipients-email').value
 
@@ -40,7 +40,7 @@ var stripeHandler = StripeCheckout.configure({
                 stripeTokenId: token.id,
                 quantity: quantity,
                 fromName: fromName,
-                fromEmail: fromEmail,
+                // fromEmail: fromEmail,
                 recipientsName: recipientsName,
                 recipientsEmail: recipientsEmail
             })
@@ -60,7 +60,7 @@ var stripeHandler = StripeCheckout.configure({
 function resetFields() {
     document.getElementById('cart-quantity-input').value = '1'
     document.getElementById('from-name').value = ''
-    document.getElementById('from-email').value = ''
+    // document.getElementById('from-email').value = ''
     document.getElementById('recipients-name').value = ''
     document.getElementById('recipients-email').value = ''
     updateQuantityDisplay()
@@ -68,26 +68,22 @@ function resetFields() {
     updatePears()
 }
 
-function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-}
+// function validateEmail(email) {
+//     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(email);
+// }
 
 function purchaseClicked() {
-    if (validateEmail(document.getElementById('recipients-email').value)) {
-        var priceElement = document.getElementsByClassName('cart-total-price')[0]
-        var price = parseFloat(priceElement.innerText.replace('$', '')) * 100
-        var fromEmail = document.getElementById('from-email').value
-        var quantity = document.getElementById('cart-quantity-input').value
-        stripeHandler.open({
-            amount: price,
-            description: `The idea of ${quantity} 🍐`,
-            email: fromEmail
-        })
-        console.log(price)
-    } else {
-        alert('Recipient\'s email is not valid')
-    }
+    var priceElement = document.getElementsByClassName('cart-total-price')[0]
+    var price = parseFloat(priceElement.innerText.replace('$', '')) * 100
+    // var fromEmail = document.getElementById('from-email').value
+    var quantity = document.getElementById('cart-quantity-input').value
+    stripeHandler.open({
+        amount: price,
+        description: `The idea of ${quantity} 🍐`,
+        // email: fromEmail
+    })
+    console.log(price)
 }
 
 function quantityChanged(event) {
@@ -174,8 +170,7 @@ updatePearview = () => {
     console.log(pears)
 
     pearviewEmailBody.innerHTML = `
-        <b>from:</b> ${fromName}<br />
-        <b>to:</b> ${recipientsName} <span class="light">&lt;${recipientsEmail}&gt;</span>
+        <b>to:</b> <span class="light">&lt;${recipientsEmail}&gt;</span>
         <br /><br />
         <div id="pearview-pears">
             ${pears}
