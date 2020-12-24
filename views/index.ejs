@@ -33,11 +33,15 @@
                     <input type="text" id="recipients-name" name="recipients-name" maxlength="25" placeholder="Friends name" size="30" /><br />
 
                     <input type="email" id="recipients-email" name="recipients-email" minlength="3" placeholder="Friends email" size="32" /><br />
-                    <p id="item-price" style="display:none;">$<%= Number.parseFloat(pear.price / 100).toFixed(2) %></p><br />
+                    <p id="item-price" style="display:none;">$<%= Number.parseFloat(pear.price / 100).toFixed(2) %></p>
 
-                    <em class="light">Recipient will receive an email with the idea of <span id="pear-quantity-text">a pear</span>.<br />No actual pears can be purchased or sent!</em><br /><br />
+                    <p><em class="light" style="margin-top: 20px;">Recipient will receive an email with the idea of <span id="pear-quantity-text">a pear</span>.</em></p><br />
 
                     <button id="pearview-open">Pearview</button><br /><br />
+
+                    <br />
+
+                    <div class="credit">Made on <a href="https://elliott.computer/">Elliott's Computer</a></div>
                 </div>
             </div>
         </div>
